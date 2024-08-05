@@ -7,12 +7,103 @@
     <title>Página de Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="views/styles/Estilos3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            background: url('img/fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
 
+        .navbar {
+            background-color: rgba(22, 36, 71, 0.8);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .titulo {
+            display: inline;
+            font-size: 1.8em;
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #00a8cc !important;
+        }
+
+        .sesion p {
+            margin: 0;
+            display: inline;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .user1 {
+            height: 25px;
+            width: 25px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+        }
+        
+        .nav-item {
+            margin-left: 20px;
+        }
+
+        .dropdown-menu {
+            background-color: #162447;
+        }
+
+        .dropdown-item {
+            color: white !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: #00a8cc;
+            color: white !important;
+        }
+
+        @media (max-width: 768px) {
+            .titulo {
+                font-size: 1.5em;
+            }
+
+            .nav-link {
+                font-size: 1em;
+            }
+
+            .sesion p {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
                 <img src="img/logo.jpeg" alt="Logo" id="logo">
@@ -28,29 +119,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Agendar Citas</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="sesion.php" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Ubicaciones
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Calle 13 #45-65</a></li>
-                            <li><a class="dropdown-item" href="#">Av Boyacá- Calle 44B Sur</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="views/Nosotros.php">Conócenos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="navbar-brand ms-auto" href="../index.php">
-                        </a>
-                        <div class="sesion">
-                            <a class="nav-link" href="views/session/sesion.php">
-                                <p class="ini"> <img src="img/user.png" class="user1">Iniciar Sesión</p>
-                            </a>
-                        </div>
+                        <a class="nav-link" href="views/session/sesion.php">
+                            <p class="ini">
+                                <img src="img/user.png" class="user1">Iniciar Sesión
+                            </p>
                         </a>
                     </li>
                 </ul>
