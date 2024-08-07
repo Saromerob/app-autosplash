@@ -403,6 +403,37 @@ h1
 
 
     </style>
+    <!--aca abajo se hace la consulta con un try catch para el tipo de vehiculo-->
+    <?php
+// Conexión a la base de datos
+$dsn = 'mysql:host=localhost;dbname=tu_base_de_datos';
+$username = 'tu_usuario';
+$password = 'tu_contraseña';
+
+try {
+    $pdo = new PDO($dsn, $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Conexión fallida: ' . $e->getMessage();
+    exit;
+}
+
+// Consulta para obtener los tipos de vehículo
+$sql = 'SELECT id, tipo FROM tipo_vehiculo';
+$stmt_tipo_vehiculo = $pdo->prepare($sql);
+$stmt_tipo_vehiculo->execute();
+?>
+
+<!-- El resto del código HTML sigue aquí -->
+
+
+
+
+
+
+
+
+
     <div class="contenedor-principal">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -529,29 +560,7 @@ $stmt_servicios = $conn->query($sql_servicios);
             <label for="autolavado">Tipo de vehiculo:</label>
             
             <select name="tipo_vehiculo" class="controls" required>
-                <?php                
-                // Crear una instancia de la clase Database
-                $db = new Database();
-                $conn = $db->conectar(); // Obtener la conexión PDO
-
-                // Consulta para obtener los tipozs
-                $sql_autolavados = "SELECT id, tipo_vehiculo FROM tipo";
-                $stmt_autolavados = $conn->query($sql_autolavados);
-
-                
-                ?>
-                <option value="">Seleccione su tipo de vehiculo</option>
-                <?php
-                // Verifica si hay resultados
-                if ($stmt_vehiculos->rowCount() > 0) {
-                    // Muestra cada autolavado como una opción
-                    while($row = $stmt_vehiculos->fetch(PDO::FETCH_ASSOC)) {
-                        echo '<option value="' . $row['id'] . '">' . $row['tipo_vehiculos'] . '</option>';
-                    }
-                } else {
-                    echo '<option value="">No hay tipos de vehiculos</option>';
-                }
-                ?>
+ 
             </select>
     
             <!-- Comentarios -->
